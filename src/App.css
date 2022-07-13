@@ -1,38 +1,394 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primaryBackground: #212222;
+  --secondaryBackground: #2f3030;
+  --primaryColor: #e0a80d;
+  --greyDark: #7d8792;
+  --headingColor: #2d2e2e;
+  --white: #fff;
+  --black: #000;
+  --sliver: #bac8d3;
+}
+body {
+  background-color: var(--headingColor);
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
+}
+a {
+  color: var(--greyDark);
+  text-decoration: none;
+  transition: 0.5s;
+}
+a:hover {
+  color: var(--primaryColor);
+}
+p {
+  color: var(--sliver);
+  font-size: 15px;
+  line-height: 30px;
+  margin: 20px 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+.flexsb {
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 17px;
+  background-color: var(--primaryColor);
+  color: var(--white);
+  padding: 15px 50px;
+  border-radius: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.fontSize {
+  font-size: 20px;
+}
+.primaryBtn {
+  background: none;
+  border: 2px solid var(--primaryColor);
+}
+/*---------header-------------*/
+header {
+  background-color: var(--headingColor);
+  height: 10vh;
+  line-height: 10vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+header a {
+  margin-left: 40px;
+}
+.toggle {
+  cursor: pointer;
+  color: var(--white);
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  header .nav {
+    display: none;
+  }
+  header a {
+    width: 100%;
+    display: block;
+    color: var(--white);
+  }
+  .toggle {
+    display: block;
+    font-size: 25px;
+    background: none;
+  }
+  .hideMenu {
+    display: block;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    background-color: var(--headingColor);
+  }
+}
+/*---------header-------------*/
+section {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+}
+.flex {
+  display: flex;
+}
+
+/*---------hero-------------*/
+.hero {
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../public/images/home-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 90vh;
+}
+.heroContent {
+  max-width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 60px;
+  font-weight: 600;
+  color: var(--primaryColor);
+}
+
+/*---------hero-------------*/
+.heading {
+  font-size: 30px;
+  color: var(--primaryColor);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/*---------about-------------*/
+.about .primaryBtn {
+  margin-left: 20px;
+}
+.about .heading {
+  text-align: left;
+  margin: 0;
+}
+.left {
+  width: 35%;
+}
+.right {
+  width: 65%;
+}
+
+/*---------about-------------*/
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+/*---------services-------------*/
+.services .box {
+  background-color: var(--primaryBackground);
+  padding: 35px;
+}
+.services i {
+  color: var(--primaryColor);
+}
+.services h3 {
+  margin-top: 20px;
+}
+/*---------services-------------*/
+.grid4 {
+  grid-template-columns: repeat(4, 1fr);
+  height: 50vh;
+  place-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*---------counter-------------*/
+.counter {
+  margin-top: 80px;
+  position: relative;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero.counter::after {
+  background-image: url("../public/images/some-facts-bg.png");
+  height: 50vh;
 }
+.counter h1 {
+  margin: 0;
+}
+/*---------counter-------------*/
+/*---------portfolio-------------*/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+article {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+article img {
+  width: 100%;
+  height: 100%;
+}
+article .box {
+  position: relative;
+  transition: 0.5s;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 2;
 }
-
-.App-link {
-  color: #61dafb;
+.overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primaryColor);
+  opacity: 0;
+  transition: 0.5s;
+  z-index: -1;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+article .box:hover .overlay::after,
+article .box:hover .overlay {
+  opacity: 1;
+}
+.catButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+.catButton button {
+  text-transform: capitalize;
+  margin-right: 20px;
+}
+/*---------portfolio-------------*/
+/*---------testimonials-------------*/
+.testimonials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.testimonials::after {
+  background-image: url("../public/images/testimonials-bg.png");
+}
+.testimonials .box {
+  max-width: 60%;
+}
+.testimonials i {
+  background-color: var(--white);
+  font-size: 20px;
+  padding: 15px;
+  margin: 30px 0;
+  display: inline-block;
+  color: var(--primaryColor);
+}
+.testimonials .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid var(--primaryColor);
+}
+.testimonials img {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  border-radius: 50%;
+  object-fit: cover;
+}
+label {
+  color: var(--primaryColor);
+  margin: 10px 0;
+  display: inline-block;
+}
+/*---------testimonials-------------*/
+/*---------blog-------------*/
+.blog img {
+  width: 100%;
+}
+.blog .box {
+  background-color: var(--primaryBackground);
+  border-radius: 10px;
+}
+.blog .text {
+  padding: 10px 30px;
+}
+/*---------blog-------------*/
+/*---------contact-------------*/
+.contact {
+  margin: 20px 0;
+}
+.contact .right,
+.contact .left {
+  padding: 20px;
+}
+.contact .flex input:nth-child(1) {
+  margin-right: 10px;
+}
+.contact button,
+.contact textarea,
+.contact input {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  outline: none;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+/*---------contact-------------*/
+/*---------footer-------------*/
+footer {
+  text-align: center;
+  background-color: var(--primaryBackground);
+  padding: 70px;
+  margin-top: 50px;
+}
+footer i {
+  margin: 5px;
+  color: var(--primaryColor);
+}
+/*---------footer-------------*/
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 60vh;
   }
-  to {
-    transform: rotate(360deg);
+  .heroContent {
+    max-width: 80%;
+  }
+
+  .hero::after {
+    background-image: url("../public/images/home-bg.png");
+    background-size: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 60vh;
+  }
+  section {
+    height: auto;
+    padding-top: 50px;
+  }
+  .contact .flexsb,
+  .about .flex {
+    flex-direction: column;
+  }
+  .right,
+  .left {
+    width: 100%;
+  }
+  .grid4,
+  .grid3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  article {
+    margin: 0;
+    padding-bottom: 50px;
   }
 }
